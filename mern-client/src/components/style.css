@@ -1,0 +1,16 @@
+/* styles.css or your preferred CSS file */
+.book-cards-container {
+    background-color: #000;
+    color: #fff;
+  }
+  /* style.css */
+.swiper-pagination-bullet {
+    background-color: white; /* Set default background color to white */
+    width: 10px; /* Adjust the width of the bullet */
+    height: 10px; /* Adjust the height of the bullet */
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: blue !important; /* Set active bullet background color to blue */
+  }
+  
