@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBarsStaggered, FaBlog, FaXmark } from 'react-icons/fa6';
+import { FaAngrycreative, FaBarsStaggered, FaBlog, FaXmark } from 'react-icons/fa6';
 import { GiSecretBook } from "react-icons/gi";
+import { AuthContext } from '../contects/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+const {user}=useContext(AuthContext);
+
 
   // Toggle menu
   const toggleMenu = () => {
@@ -29,7 +33,7 @@ const Navbar = () => {
   // Navigation items
   const navItems = [
     { link: 'Home', path: '/' },
-    { link: 'About', path: '/about' },
+    { link: 'Your Books', path: '/about' },
     { link: 'Shop', path: '/shop' },
     { link: 'Sell Your Book', path: '/admin/dashboard' },
     { link: 'Blog', path: '/blog' },
@@ -61,7 +65,10 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-
+          <div className="flex items-center">
+      <FaUserCircle className="w-5 h-5 mr-2 text-white hover:text-blue-700" />
+      <span className="text-white">{user ? user.email : ''}</span>
+    </div>
           {/* Hamburger menu button for small devices */}
           <div className="md:hidden">
             <button onClick={toggleMenu} className="text-white focus:outline-none">

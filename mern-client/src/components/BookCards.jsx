@@ -8,7 +8,7 @@ import 'swiper/css/pagination'; // Import Swiper pagination styles
 import { Pagination } from 'swiper/modules'; // Import Swiper pagination module
 import "./style.css"
 const BookCards = ({ headLine, books }) => {
-  console.log(books);
+
   return (
     <div className="mt-12 my-16 px-4 lg:px-24 book-cards-container">
       <h2 className="text-5xl text-center font-bold my-5">{headLine}</h2>

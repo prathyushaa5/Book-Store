@@ -1,6 +1,6 @@
 import React from 'react';
 import BannerCard from '../home/BannerCard';
-
+import { Link } from 'react-router-dom';
 const Banner = () => {
   return (
     <div className='px-4 lg:px-24 bg-black text-white flex items-center'>
@@ -18,15 +18,10 @@ const Banner = () => {
           Explore thousands of titles across genres, from timeless classics to the latest bestsellers. Sell your gently used books effortlessly and find new homes for your beloved stories. Browse through listings curated by fellow book enthusiasts and discover hidden gems that match your interests.
           </p>
           <div>
-            <input
-              type='search'
-              name='search'
-              placeholder='Search a Book'
-              className='py-2 px-2 rounded-sm text-blue outline-none border border-gray-300 text-white'
-            />
-            <button className='bg-blue-700 px-6 py-2 text-white font-medium hover:bg-blue-900 transition-all ease-in duration-200 ml-2'>
-              Search
-            </button>
+            <Link to="/shop"> <button className='bg-blue-700 px-6 py-2 rounded text-white font-medium hover:bg-blue-900 transition-all ease-in duration-200 ml-2' >
+            Explore
+            </button></Link>
+           
           </div>
         </div>
        

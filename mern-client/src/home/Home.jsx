@@ -6,6 +6,7 @@ import PromoBanner from './PromoBanner'
 import './style.css'
 import OtherBooks from './OtherBooks'
 import Review from './Review'
+import MyFooter from '../components/MyFooter'
 const Home = () => {
   return (
     <div className=''>
@@ -15,6 +16,7 @@ const Home = () => {
  <PromoBanner/>
  <OtherBooks/>
  <Review/>
+
        </div>
     
    

@@ -18,7 +18,7 @@ const FavBooks = () => {
           </div>
           <div>
             <h3 className ='text-3xl font-bold'>1000+</h3>
-            <p className='text-base'>PDF Downloads</p>
+            <p className='text-base'>Purchases </p>
           </div>
           <div>
             <h3 className ='text-3xl font-bold'>900+</h3>
