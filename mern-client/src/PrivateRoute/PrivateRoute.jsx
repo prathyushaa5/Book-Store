@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { Spinner } from 'flowbite-react';
 
-const PrivateRoute = ({ children }) => { // Correctly destructure props to get children
+const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
@@ -18,12 +18,11 @@ const PrivateRoute = ({ children }) => { // Correctly destructure props to get c
     }
 
     if (user) {
-        return children; // Render children if user is authenticated
+        return children; // Render the children components if user is authenticated
     }
 
-    return (
-        <Navigate to="/login" state={{ from: location }} replace /> // Redirect to login if user is not authenticated
-    );
+    // Redirect to login page if user is not authenticated
+    return <Navigate to="/login" state={{ from: location }} replace />;
 }
 
 export default PrivateRoute;

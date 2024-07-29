@@ -1,5 +1,3 @@
-// frontend/src/components/UploadBook.jsx
-
 import React, { useState, useContext } from 'react';
 import { Button, Label, TextInput, Select, Textarea } from 'flowbite-react';
 import { AuthContext } from '../contects/AuthProvider';
@@ -35,15 +33,15 @@ const UploadBook = () => {
 
     const formData = new FormData();
     formData.append('bookTitle', event.target.bookTitle.value);
-formData.append('authorname', event.target.authorname.value); // Ensure 'authorname' matches backend's expected field name
-
+    formData.append('authorname', event.target.authorname.value);
     formData.append('category', selectedBookCategory);
     formData.append('price', event.target.price.value);
     formData.append('bookDescription', event.target.bookDescription.value);
-    formData.append('userId', user.email);
+    formData.append('userId', user.email); // Seller's email (userId)
     formData.append('imageFile', selectedImage);
 
     try {
+      // Upload book details to backend
       const response = await fetch('http://localhost:5000/upload-book', {
         method: 'POST',
         body: formData
@@ -55,10 +53,17 @@ formData.append('authorname', event.target.authorname.value); // Ensure 'authorn
 
       const data = await response.json();
       console.log('Book uploaded successfully:', data.book);
-      alert('Book uploaded successfully');
+
+      // After book upload, you can redirect to payment page or handle payment initiation here
+
+      // Example: Redirect to payment page
+      // window.location.href = `/payment?bookId=${data.book._id}`;
+
+      // Clear form and reset state
       event.target.reset();
       setSelectedImage(null);
       setErrorMessage('');
+      alert('Book uploaded successfully');
     } catch (error) {
       console.error('Error uploading book:', error);
       setErrorMessage('Failed to upload book. Please try again.');

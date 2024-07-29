@@ -19,7 +19,7 @@ const User = () => {
     }, [user]);
 
     return (
-        <div className="h-screen bg-gray-900 text-white flex items-center justify-center">
+        <div className="h-screen bg-gray-1000 text-white flex items-center mx-auto justify-center">
             <div className="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
                 <h2 className="text-2xl mb-4">User Profile</h2>
                 {userDetails && (

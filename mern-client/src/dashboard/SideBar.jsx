@@ -8,7 +8,7 @@ const SideBar = () => {
     <div className="text-white bg-gray-700 min-h-screen">
       <Sidebar aria-label="Sidebar with content separator example">
       <Sidebar.Logo href="#" img="/favicon.svg"  className="text-gray-800 ">
-        Flowbite
+      Menu
       </Sidebar.Logo>
         <Sidebar.Items>
           <Sidebar.ItemGroup>
@@ -21,8 +21,14 @@ const SideBar = () => {
             <Sidebar.Item href="/admin/dashboard/manage" icon={HiInbox}>
               Manage Books
             </Sidebar.Item>
-            <Sidebar.Item href="/user" icon={HiUser}>
+            <Sidebar.Item href="/admin/dashboard/requests" icon={HiViewBoards}>
+           Requests
+            </Sidebar.Item>
+            <Sidebar.Item href="/admin/dashboard/user" icon={HiUser}>
               Users
+            </Sidebar.Item>
+            <Sidebar.Item href="/admin/dashboard/yourorders" icon={HiUser}>
+           Your Orders
             </Sidebar.Item>
             <Sidebar.Item href="/shop" icon={HiShoppingBag}>
               Products

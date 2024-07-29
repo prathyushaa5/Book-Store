@@ -18,7 +18,7 @@ const Banner = () => {
           Explore thousands of titles across genres, from timeless classics to the latest bestsellers. Sell your gently used books effortlessly and find new homes for your beloved stories. Browse through listings curated by fellow book enthusiasts and discover hidden gems that match your interests.
           </p>
           <div>
-            <Link to="/shop"> <button className='bg-blue-700 px-6 py-2 rounded text-white font-medium hover:bg-blue-900 transition-all ease-in duration-200 ml-2' >
+            <Link to="/shop"> <button className='bg-blue-700 px-6 py-2 rounded text-white font-medium hover:bg-gray-900 transition-all ease-in duration-200 ml-2' >
             Explore
             </button></Link>
            

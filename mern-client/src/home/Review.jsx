@@ -45,7 +45,7 @@ const Review = () => {
         className="mySwiper"
       >
       
-      <SwiperSlide className="shadow-2xl bg- py-8  px-4 md:m-5 rounded-lg border">
+      <SwiperSlide className="shadow-2xl bg-gray-900 py-8  px-4 md:m-5 rounded-lg ">
             
             <div className="m-4">
                 <div className=' text-amber-500 flex gap-2'>
@@ -63,11 +63,30 @@ const Review = () => {
                 </div>
             </div>
         </SwiperSlide>
-        <SwiperSlide className="shadow-2xl bg-black py-8  px-4 md:m-5 rounded-lg border">
+        <SwiperSlide className="shadow-2xl bg-gray-900 py-8  px-4 md:m-5 rounded-lg ">
             
             <div className="m-4">
                 <div className=' text-amber-500 flex gap-2'>
                     <FaStar/>
+                    <FaStar/>
+                    <FaStar/>
+                    <FaStar/>
+                    <FaStar/>
+                </div>
+                <div>
+                <p className="mt-7 ">
+                "Book Bridge is a haven for bibliophiles! The platform offers a diverse range of books, both vintage and modern, making it easy to find hidden gems. It's user-friendly, with clear descriptions and fair pricing. "</p>
+                    <Avatar img={profile1} alt="avatar of Jese" rounded  className="w-10 mt-7 mb-4"/>
+                    <h5 className="text-base font-medium ">Jayn Mathews</h5>
+                    <p className="text-base ">Educator</p>
+                </div>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide className="shadow-2xl bg-gray-900 py-8  px-4 md:m-5 rounded-lg ">
+            
+            
+            <div className="m-4">
+                <div className=' text-amber-500 flex gap-2'>
                     <FaStar/>
                     <FaStar/>
                     <FaStar/>
@@ -75,32 +94,15 @@ const Review = () => {
                 </div>
                 <div>
                 <p className="mt-7">
-                "Book Bridge is a haven for bibliophiles! The platform offers a diverse range of books, both vintage and modern, making it easy to find hidden gems. It's user-friendly, with clear descriptions and fair pricing. A must-visit for bookworms eager to expand their collection or declutter shelves."</p>
+                "The Book Bridge website seamlessly connects book lovers, offering a vast selection of old and new titles. It's intuitive to use, with detailed listings and a smooth buying process. Highly recommended for readers"</p>
                     <Avatar img={profile1} alt="avatar of Jese" rounded  className="w-10 mt-7 mb-4"/>
                     <h5 className="text-base font-medium ">Jayn Mathews</h5>
                     <p className="text-base ">Educator</p>
                 </div>
             </div>
         </SwiperSlide>
-        <SwiperSlide className="shadow-2xl bg- py-8  px-4 md:m-5 rounded-lg border">
+        <SwiperSlide className="shadow-2xl bg-gray-900 py-8  px-4 md:m-5 rounded-lg ">
             
-            <div className="m-4">
-                <div className=' text-amber-500 flex gap-2'>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                </div>
-                <div>
-                <p className="mt-7">
-                "The Book Bridge website seamlessly connects book lovers, offering a vast selection of old and new titles. It's intuitive to use, with detailed listings and a smooth buying process. Highly recommended for anyone looking to explore or sell literary treasures."</p>
-                    <Avatar img={profile1} alt="avatar of Jese" rounded  className="w-10 mt-7 mb-4"/>
-                    <h5 className="text-base font-medium ">Jayn Mathews</h5>
-                    <p className="text-base ">Educator</p>
-                </div>
-            </div>
-        </SwiperSlide>
-        <SwiperSlide className="shadow-2xl bg-black py-8  px-4 md:m-5 rounded-lg border">
             
             <div className="m-4">
                 <div className=' text-amber-500 flex gap-2'>
@@ -111,14 +113,15 @@ const Review = () => {
                     <FaStar/>
                 </div>
                 <div>
-                <p className="mt-7">"Book Bridge is a haven for bibliophiles! The platform offers a diverse range of books, both vintage and modern, making it easy to find hidden gems. It's user-friendly, with clear descriptions and fair pricing. A must-visit for bookworms eager to expand their collection or declutter shelves."</p>
+                <p className="mt-7">"Book Bridge is a haven for bibliophiles! The platform offers a diverse range of books, both vintage and modern, making it easy to find hidden gems. It's user-friendly, with clear descriptions and fair pricing."</p>
                     <Avatar img={profile1} alt="avatar of Jese" rounded  className="w-10 mt-7 mb-4"/>
                     <h5 className="text-base font-medium ">Jayn Mathews</h5>
                     <p className="text-base ">Educator</p>
                 </div>
             </div>
         </SwiperSlide>
-        <SwiperSlide className="shadow-2xl bg-black py-8  px-4 md:m-5 rounded-lg border">
+        <SwiperSlide className="shadow-2xl bg-gray-900 py-8  px-4 md:m-5 rounded-lg ">
+            
             
             <div className="m-4">
                 <div className=' text-amber-500 flex gap-2'>
@@ -128,14 +131,14 @@ const Review = () => {
                     <FaStar/>
                 </div>
                 <div>
-                <p className="mt-7">"Book Bridge is my go-to for book shopping! It offers a wide selection, from classics to niche subjects, all neatly categorized. The seller profiles and customer reviews provide peace of mind, ensuring every purchase is reliable. I've sold books effortlessly too, making it a win-win for buyers and sellers alike."</p>
+                <p className="mt-7">"Book Bridge is my go-to for book shopping! It offers a wide selection, from classics to niche subjects, all neatly categorized. The seller profiles and customer reviews provide peace of mind, ensuring every purchase is reliable."</p>
                     <Avatar img={profile1} alt="avatar of Jese" rounded  className="w-10 mt-7 mb-4"/>
                     <h5 className="text-base font-medium ">Jayn Mathews</h5>
                     <p className="text-base ">Educator</p>
                 </div>
             </div>
         </SwiperSlide>
-        <SwiperSlide className="shadow-2xl bg-black py-8  px-4 md:m-5 rounded-lg border">
+        <SwiperSlide className="shadow-2xl bg-gray-900 py-8  px-4 md:m-5 rounded-lg ">
             
             <div className="m-4">
                 <div className=' text-amber-500 flex gap-2'>
@@ -144,13 +147,14 @@ const Review = () => {
                     <FaStar/>
                 </div>
                 <div>
-                <p className="mt-7 ">"Discovering Book Bridge was a game-changer! I found rare editions and contemporary favorites easily. The interface is intuitive, and the seller ratings ensure trustworthy transactions. Whether you're a collector or a reader, this platform simplifies book buying and selling while fostering a vibrant literary community."</p> <Avatar img={profile1} alt="avatar of Jese" rounded  className="w-10 mt-7 mt-7 mb-4"/>
+                <p className="mt-7 ">"Discovering Book Bridge was a game-changer! I found rare editions and contemporary favorites easily. The interface is intuitive, and the seller ratings ensure trustworthy transactions."</p> <Avatar img={profile1} alt="avatar of Jese" rounded  className="w-10 mt-7 mt-7 mb-4"/>
                     <h5 className="text-base font-medium ">Jayn Mathews</h5>
                     <p className="text-base ">Educator</p>
                 </div>
             </div>
         </SwiperSlide>
-        <SwiperSlide className="shadow-2xl bg-black py-8  px-4 md:m-5 rounded-lg border">
+        <SwiperSlide className="shadow-2xl bg-gray-900 py-8  px-4 md:m-5 rounded-lg ">
+            
             
             <div className="m-4">
                 <div className=' text-amber-500 flex gap-2'>
@@ -160,7 +164,7 @@ const Review = () => {
                     <FaStar/>
                 </div>
                 <div>
-                <p className="mt-7">"Book Bridge is a gem for book enthusiasts! The site's design is user-centric, enhancing the browsing and purchasing experience. Selling books is straightforward with prompt customer support. Whether you're looking for a specific title or exploring new genres, this platform offers quality books and a seamless transaction process."</p>
+                <p className="mt-7">"Book Bridge is a gem for book enthusiasts! The site's design is user-centric, enhancing the browsing and purchasing experience. Selling books is straightforward with prompt customer support."</p>
                     <Avatar img={profile1} alt="avatar of Jese" rounded  className="w-10 mt-7 mb-4"/>
                     <h5 className="text-base font-medium ">Jayn Mathews</h5>
                     <p className="text-base ">Educator</p>

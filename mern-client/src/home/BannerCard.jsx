@@ -1,14 +1,13 @@
-import React, { useRef, useState } from 'react';
-// import required modules
-import { EffectCards } from 'swiper/modules';
-import bookstore from "../assets/bookstore.jpeg"
+import React from 'react';
+import bookstore from "../assets/bookstore.jpeg";
+
 const BannerCard = () => {
   return (
     <div className='banner'>
-         <img src={bookstore} className="rounded-full " alt="" />
-      
+      {/* Adjust image size */}
+      <img src={bookstore} className="w-100 rounded-full h-auto mx-auto  mt-0  " alt="Bookstore" />
     </div>
-  )
-}
+  );
+};
 
-export default BannerCard
+export default BannerCard;

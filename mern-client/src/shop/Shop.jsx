@@ -23,7 +23,8 @@ const Shop = () => {
   const filterBooks = (booksData) => {
     const results = booksData.filter(book =>
       book.bookTitle.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      book.userId !== user.email // Filter out books where userId matches user.email
+      book.userId !== user.email && // Filter out books where userId matches user.email
+      !book.ordered // Filter out books where ordered is true
     );
     setSearchResults(results);
   };
@@ -68,14 +69,18 @@ const Shop = () => {
             className="max-w-sm bg-black rounded-none border-gray-800"
           >
             <img src={book.imageurl} className="h-96" alt="" />
-            <h5 className="text-2xl font-bold tracking-tight text-white">
-              <p>{book.bookTitle}</p>
-              <p className="text-white">Rs {book.price}</p>
-            </h5>
-            <p className="font-normal text-white">
-              {book.bookDescription}
-            </p>
-            <Link to={`/book/${book._id}`}><button className="bg-blue-700 text-white font-semibold p-2 rounded ">Buy Now</button></Link>
+            <div className="p-4">
+              <h5 className="text-2xl font-bold tracking-tight text-white mb-2">
+                {book.bookTitle}
+              </h5>
+              <p className="text-white mb-2">Rs {book.price}</p>
+              <p className="text-white mb-4">{book.authorname}</p>
+              <Link to={`/book/${book._id}`}>
+                <button className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-md transition duration-300 w-full">
+                  Buy Now
+                </button>
+              </Link>
+            </div>
           </Card>
         ))}
       </div>

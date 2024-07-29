@@ -18,7 +18,12 @@ import Signup from "../components/Signup";
 import Login from "../components/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Logout from "../components/Logout";
+import Review from "../home/Review";
+import ReviewForm from "../home/ReviewForm";
 import User from "../components/User";
+import CheckoutPage from "../shop/Checkout";
+import YourOrders from "../dashboard/YourOrders";
+import Request from "../dashboard/Request";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -38,6 +43,10 @@ const router = createBrowserRouter([
     path:"/about",
     element:<PrivateRoute><About/></PrivateRoute>
 },
+{
+  path:"/review",
+  element:<PrivateRoute><ReviewForm/></PrivateRoute>
+},
 { path:"/book/:id",
 element:<SingleBook/>,
 loader:({params})=>fetch(`http://localhost:5000/book/${params.id}`)
@@ -53,18 +62,29 @@ loader:({params})=>fetch(`http://localhost:5000/book/${params.id}`)
   element:<DashboardLayout/>,
   children:[
     {path:"/admin/dashboard",
-  element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+  element:<Dashboard></Dashboard>,
     },
     {
       path:"/admin/dashboard/upload",
-      element:<UploadBook/>
+      element:<PrivateRoute><UploadBook/></PrivateRoute>
     },{
       path:"/admin/dashboard/manage",
-      element:<ManageBooks/>
+      element:<PrivateRoute><ManageBooks/></PrivateRoute>
     },{
       path:"/admin/dashboard/editbooks/:id",
-      element:<EditBooks/>,
+      element:<PrivateRoute><EditBooks/></PrivateRoute>,
       loader:({params})=>fetch(`http://localhost:5000/book/${params.id}`)
+    }
+    ,{
+      path:"/admin/dashboard/user",
+      element:<PrivateRoute><User/></PrivateRoute>,
+      
+    },{
+      path:"/admin/dashboard/yourorders",
+      element:<PrivateRoute><YourOrders/></PrivateRoute>
+    },{
+      path:"/admin/dashboard/requests",
+      element:<PrivateRoute><Request/></PrivateRoute>
     }
   
     
@@ -81,10 +101,10 @@ loader:({params})=>fetch(`http://localhost:5000/book/${params.id}`)
   path:"logout",
   element:<Logout/>
 
-},
-{
-  path:"user",
-  element:<User/>
+},{
+  path:"/checkout/:id",
+  element:<PrivateRoute><CheckoutPage/></PrivateRoute>,
+  loader:({params})=>fetch(`http://localhost:5000/book/${params.id}`)
 }
   ]);
   export default router

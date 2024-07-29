@@ -24,6 +24,7 @@ const About= () => {
     const results = booksData.filter(book =>
       book.bookTitle.toLowerCase().includes(searchTerm.toLowerCase()) &&
       book.userId == user.email // Filter out books where userId matches user.email
+      // Filter out books where ordered is true
     );
     setSearchResults(results);
   };
@@ -71,12 +72,13 @@ const About= () => {
             <h5 className="text-2xl font-bold tracking-tight text-white">
               <p>{book.bookTitle}</p>
               <p>Rs {book.price}</p>
+              <p className="text-sm text-green-500">{book.ordered?'sold':'not sold'}</p>
 
             </h5>
-            {console.log(book.imageurl)}
-            <p className="font-normal text-white">
+          
+            {/* <p className="font-normal text-white">
               {book.bookDescription}
-            </p>
+            </p> */}
        
           </Card>
         ))}
