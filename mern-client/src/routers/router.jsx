@@ -24,6 +24,7 @@ import User from "../components/User";
 import CheckoutPage from "../shop/Checkout";
 import YourOrders from "../dashboard/YourOrders";
 import Request from "../dashboard/Request";
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -86,7 +87,6 @@ loader:({params})=>fetch(`http://localhost:5000/book/${params.id}`)
       path:"/admin/dashboard/requests",
       element:<PrivateRoute><Request/></PrivateRoute>
     }
-  
     
   ]
 }

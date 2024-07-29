@@ -24,6 +24,16 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+const Razorpay = require('razorpay');
+require('dotenv').config();
+
+// Initialize Razorpay instance with your credentials
+const razorpay = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET
+});
+
+
 
 
 
@@ -245,6 +255,38 @@ app.get("/all-orders", async (req, res) => {
         }
       });
       
+      // Endpoint to create Razorpay order
+app.post('/create-order', async (req, res) => {
+  try {
+    const { amount, currency, receipt } = req.body;
+    const options = {
+      amount: amount * 100, // amount in paise
+      currency: currency,
+      receipt: receipt
+    };
+    const order = await razorpay.orders.create(options);
+    res.json(order);
+  } catch (error) {
+    console.error('Error creating Razorpay order:', error);
+    res.status(500).json({ error: 'Failed to create order' });
+  }
+});
+
+// Endpoint to verify payment
+app.post('/verify-payment', (req, res) => {
+  const crypto = require('crypto');
+  const { orderId, paymentId, signature } = req.body;
+
+  const generatedSignature = crypto.createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
+                                  .update(orderId + '|' + paymentId)
+                                  .digest('hex');
+
+  if (generatedSignature === signature) {
+    res.json({ success: true });
+  } else {
+    res.status(400).json({ error: 'Invalid signature' });
+  }
+});
 
   
       // Send a ping to confirm a successful connection

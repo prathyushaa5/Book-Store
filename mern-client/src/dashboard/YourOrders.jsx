@@ -1,11 +1,88 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../contects/AuthProvider'; // Ensure this path is correct
+import { AuthContext } from '../contects/AuthProvider';
 
 const YourOrders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
-  
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
+  useEffect(() => {
+    // Load the Razorpay script dynamically
+    const loadRazorpayScript = () => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => setScriptLoaded(true);
+      script.onerror = () => console.error('Failed to load Razorpay script');
+      document.body.appendChild(script);
+    };
+
+    loadRazorpayScript();
+  }, []);
+
+  const handlePayment = async (order) => {
+    if (!scriptLoaded) {
+      console.error('Razorpay script is not loaded yet.');
+      alert('Razorpay script is not loaded. Please try again later.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: order.price, // Amount should be in the smallest currency unit
+          currency: 'INR',
+          receipt: order._id
+        })
+      });
+      const data = await response.json();
+
+      if (data && data.id) {
+        const options = {
+          key: ({}).REACT_APP_RAZORPAY_KEY_ID, // Correctly access the API key from environment variables
+          amount: data.amount,
+          currency: data.currency,
+          name: "Neema Rao",
+          description: "Test Mode",
+          order_id: data.id,
+          handler: async (response) => {
+            try {
+              const res = await fetch(`http://localhost:5000/api/payment/order`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                })
+              });
+        
+              const verifyData = await res.json();
+        
+              if (verifyData.message) {
+                toast.success(verifyData.message);
+              }
+            } catch (error) {
+              console.log(error);
+            }
+          },
+          theme: {
+            color: "#5f63b8"
+          }
+        };
+        const rzp = new window.Razorpay(options);
+        rzp.open();
+      }
+    } catch (error) {
+      console.error('Error processing payment:', error);
+      alert('Payment processing failed');
+    }
+  };
+
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -14,7 +91,6 @@ const YourOrders = () => {
           throw new Error('Failed to fetch orders');
         }
         const data = await response.json();
-        // Filter orders where user.email matches user.email and the request field is present
         const filteredOrders = data.filter(order => 
           order.userId === user.email && 'request' in order
         );
@@ -25,10 +101,10 @@ const YourOrders = () => {
       }
     };
 
-    if (user && user.email) { // Ensure user and user.email are defined before fetching
+    if (user && user.email) {
       fetchOrders();
     }
-  }, [user.email]); // Trigger fetchOrders whenever user.email changes
+  }, [user.email]);
 
   if (error) {
     return (
@@ -63,6 +139,12 @@ const YourOrders = () => {
                     {order.request === 'pending' ? 'Pending' : order.request === 'accepted' ? 'Approved' : 'Not Available'}
                   </span>
                 </p>
+                <button 
+                  onClick={() => handlePayment(order)} 
+                  className="bg-gray-700 text-white py-1 px-3 rounded-md border border-gray-600 hover:bg-gray-600 focus:outline-none transition duration-150 ease-in-out"
+                >
+                  Make Payment
+                </button>
               </div>
             </div>
           ))
@@ -75,3 +157,4 @@ const YourOrders = () => {
 };
 
 export default YourOrders;
+
