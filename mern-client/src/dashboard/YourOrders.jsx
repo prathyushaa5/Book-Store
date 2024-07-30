@@ -44,7 +44,7 @@ const YourOrders = () => {
           key: ({}).REACT_APP_RAZORPAY_KEY_ID, // Correctly access the API key from environment variables
           amount: data.amount,
           currency: data.currency,
-          name: "Neema Rao",
+          name: "name",
           description: "Test Mode",
           order_id: data.id,
           handler: async (response) => {
