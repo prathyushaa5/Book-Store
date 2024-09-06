@@ -20,7 +20,7 @@ const cors=require('cors')
 
 app.use(cors(
   {
-    origin:["https://book-store-eosin-rho.vercel.app/"],
+    origin:["https://book-store-6pit.vercel.app/"],
     methods:["POST","GET"],
     credentials:true
   }));
