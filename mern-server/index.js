@@ -18,12 +18,7 @@ const cors=require('cors')
 
 
 
-app.use(cors(
-  {
-    origin:["https://book-store-6pit.vercel.app/"],
-    methods:["POST","GET"],
-    credentials:true
-  }));
+
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 app.get('/', (req, res) => {
