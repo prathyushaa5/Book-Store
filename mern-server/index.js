@@ -51,8 +51,8 @@ const client = new MongoClient(uri, {
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'addyourmail@gmail.com',
-    pass: 'password'
+    user: 'prathyushaacharya050@gamil.com',
+    pass: '***'
   }
 });
 
